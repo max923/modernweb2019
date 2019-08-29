@@ -14,10 +14,10 @@ const FinalFormTest = ({ fieldCount = 0, onSubmit }) => {
     const refCount = React.useRef(0);
     const keys = [...Array(fieldCount).keys()]
         .map(n => n + 1);
-
     return (
         <Container fluid style={{ padding: '1rem 1.5rem' }}>
             <Form
+                subscription={{}}
                 onSubmit={onSubmit}
                 render={({ handleSubmit, form, values }) => {
                     return (
@@ -62,7 +62,6 @@ const FinalFormTest = ({ fieldCount = 0, onSubmit }) => {
                                                 const isRequiredField = (index < 10);
                                                 const validate = isRequiredField ? required : null;
                                                 const placeholder = isRequiredField ? 'Required field' : 'Optional field';
-                                                
                                                 return (
                                                     <Field
                                                         name={`field${key}`}
